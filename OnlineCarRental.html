@@ -8,155 +8,278 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Kept only for the car photos: .image-suv, .image-sedan, .image-hatchback -->
     <link rel="stylesheet" href="OnlineCarRental.css">
+
+    <style>
+        :root { --bs-body-font-family: "DM Sans", system-ui, sans-serif; }
+        h1, h2, h3, .navbar-brand { font-family: "Space Grotesk", "DM Sans", sans-serif; }
+        html { scroll-padding-top: 5rem; }   /* keeps anchor targets clear of the sticky navbar */
+        .slide-img { background-size: cover; background-position: center; background-color: #495057; }
+    </style>
 </head>
 <body>
-    <header class="site-header">
-        <a class="logo" href="#top" aria-label="goRide home">
-            <span class="logo-mark">g</span>
-            <span>goRide</span>
-        </a>
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="#fleet">Cars for rent</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="#payment">Card payment</a>
-            <a href="#contact">Contact</a>
-            <a href="adminloginpage.html">Admin Login</a>
-        </nav>
-    </header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#top" aria-label="goRide home">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary text-white" style="width:2rem;height:2rem">g</span>
+                <span>goRide</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#fleet">Cars for rent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How it works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#payment">Card payment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-outline-primary" href="loginpage.html">User Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <main id="top">
-        <section class="hero-section">
-            <div class="hero-copy">
-                <p class="eyebrow">Drive your way</p>
-                <h1>Good trips start with a better car.</h1>
-                <p class="hero-text">Reliable cars for city drives, family trips, and business travel across Pakistan.</p>
-                <a class="primary-button" href="#booking">Find your ride <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            <div class="hero-stat" aria-label="Customer rating">
-                <strong>4.9</strong>
-                <span>average customer rating</span>
-            </div>
-        </section>
-
-        <section class="booking-panel" id="booking" aria-labelledby="booking-title">
-            <div class="section-heading compact-heading">
-                <p class="eyebrow">Ready when you are</p>
-                <h2 id="booking-title">Book your next drive</h2>
-            </div>
-            <form class="booking-form">
-                <label>
-                    <span>Pick-up location</span>
-                    <input type="text" name="location" placeholder="City" required>
-                </label>
-                <label>
-                    <span>Pick-up date</span>
-                    <input type="date" name="pickup-date" required>
-                </label>
-                <label>
-                    <span>Return date</span>
-                    <input type="date" name="return-date" required>
-                </label>
-                <button class="primary-button" type="submit">Search cars <span aria-hidden="true">&rarr;</span></button>
-            </form>
-        </section>
-
-        <section class="fleet-section" id="fleet" aria-labelledby="fleet-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Choose your mood</p>
-                    <h2 id="fleet-title">A car for every kind of day</h2>
-                </div>
-                <a class="text-link" href="#booking">View all cars <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            <div class="fleet-grid">
-                <article class="car-card featured-car">
-                    <div class="car-image image-suv" role="img" aria-label="Toyota Fortuner available for rent in Pakistan"></div>
-                    <div class="car-details">
-                        <div>
-                            <p class="car-type">Family SUV</p>
-                            <h3>Toyota Revo</h3>
-                        </div>
-                        <p class="price"><strong>PKR 15,000</strong> / day</p>
+        <!-- HERO -->
+        <section class="bg-body-tertiary py-5">
+            <div class="container py-lg-4">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <p class="fw-semibold text-primary mb-2">Drive your way</p>
+                        <h1 class="display-4 fw-bold mb-3">Good trips start with a better car.</h1>
+                        <p class="lead text-secondary mb-4">Reliable cars for city drives, family trips, and business travel across Pakistan.</p>
+                        <a class="btn btn-primary btn-lg" href="#booking">Find your ride <span aria-hidden="true">&rarr;</span></a>
                     </div>
-                    <p class="car-specs">Automatic &nbsp; . &nbsp; 5 seats &nbsp; . &nbsp; 2 bags</p>
-                </article>
-                <article class="car-card">
-                    <div class="car-image image-sedan" role="img" aria-label="Toyota Corolla available for rent in Pakistan"></div>
-                    <div class="car-details">
-                        <div>
-                            <p class="car-type">Sedan</p>
-                            <h3>Honda City</h3>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="d-inline-block bg-body rounded-4 shadow-sm px-4 py-3 text-center" role="group" aria-label="Customer rating">
+                            <strong class="d-block display-4 lh-1">4.9</strong>
+                            <span class="text-secondary">average customer rating</span>
                         </div>
-                        <p class="price"><strong>PKR 10,000</strong> / day</p>
                     </div>
-                    <p class="car-specs">Automatic &nbsp; . &nbsp; 5 seats &nbsp; . &nbsp; 2 bags</p>
-                </article>
-                <article class="car-card">
-                    <div class="car-image image-hatchback" role="img" aria-label="Suzuki Alto available for rent in Pakistan"></div>
-                    <div class="car-details">
-                        <div>
-                            <p class="car-type">City compact</p>
-                            <h3>Suzuki Alto</h3>
-                        </div>
-                        <p class="price"><strong>PKR 5,000</strong> / day</p>
-                    </div>
-                    <p class="car-specs">Automatic &nbsp; . &nbsp; 5 seats &nbsp; . &nbsp; 1 bag</p>
-                </article>
+                </div>
             </div>
         </section>
 
-        <section class="benefits-section" id="how-it-works" aria-labelledby="benefits-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">The goRide promise</p>
-                    <h2 id="benefits-title">Less admin. More adventure.</h2>
+        <!-- BOOKING FORM -->
+        <section class="py-5" id="booking" aria-labelledby="booking-title">
+            <div class="container">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <p class="fw-semibold text-primary mb-1">Ready when you are</p>
+                        <h2 id="booking-title" class="h3 mb-4">Book your next drive</h2>
+                        <form class="row g-3 align-items-end">
+                            <div class="col-md-6 col-lg-3">
+                                <label class="form-label" for="pickup-location">Pick-up location</label>
+                                <input class="form-control" type="text" id="pickup-location" name="location" placeholder="City" required>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label class="form-label" for="pickup-date">Pick-up date</label>
+                                <input class="form-control" type="date" id="pickup-date" name="pickup-date" required>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label class="form-label" for="return-date">Return date</label>
+                                <input class="form-control" type="date" id="return-date" name="return-date" required>
+                            </div>
+                            <div class="col-md-6 col-lg-3 d-grid">
+                                <button class="btn btn-primary" type="submit">Search cars <span aria-hidden="true">&rarr;</span></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="benefits-grid">
-                <article class="benefit"><span class="benefit-number">01</span><h3>Clear pricing</h3><p>What you see is what you pay, with no surprise fees at checkout.</p></article>
-                <article class="benefit"><span class="benefit-number">02</span><h3>Flexible plans</h3><p>Change your dates or extend your trip when life takes a turn.</p></article>
-                <article class="benefit"><span class="benefit-number">03</span><h3>Real support</h3><p>Our local team is ready to help before, during, and after your drive.</p></article>
             </div>
         </section>
 
-        <section class="payment-section" id="payment" aria-labelledby="payment-title">
-            <div class="payment-copy">
-                <p class="eyebrow">Secure checkout</p>
-                <h2 id="payment-title">Pay for your ride by card.</h2>
-                <p>Reserve your car with a secure card payment. We accept Visa, Mastercard.</p>
-                <div class="payment-methods" aria-label="Accepted card services">
-                    <span>VISA</span><span>mastercard</span></span>
+        <!-- FLEET CAROUSEL -->
+        <section class="py-5 bg-body-tertiary" id="fleet" aria-labelledby="fleet-title">
+            <div class="container">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+                    <div>
+                        <p class="fw-semibold text-primary mb-1">Choose your mood</p>
+                        <h2 id="fleet-title" class="mb-0">A car for every kind of day</h2>
+                    </div>
+                    <a class="link-primary fw-semibold text-decoration-none" href="#booking">View all cars <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div id="fleetCarousel" class="carousel slide bg-dark text-white rounded-4 overflow-hidden shadow" data-bs-ride="carousel" role="region" aria-label="Featured rental cars">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#fleetCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Toyota Revo"></button>
+                        <button type="button" data-bs-target="#fleetCarousel" data-bs-slide-to="1" aria-label="Honda City"></button>
+                        <button type="button" data-bs-target="#fleetCarousel" data-bs-slide-to="2" aria-label="Suzuki Alto"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-md-7">
+                                    <div class="ratio ratio-16x9">
+                                        <div class="slide-img image-suv" role="img" aria-label="Toyota Revo available for rent in Pakistan"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 p-4 pb-5 p-lg-5">
+                                    <p class="text-white-50 mb-1">Family SUV</p>
+                                    <h3 class="h2 mb-2">Toyota Revo</h3>
+                                    <p class="fs-4 mb-3"><strong>PKR 15,000</strong> <span class="fs-6 text-white-50">/ day</span></p>
+                                    <span class="badge text-bg-light">Automatic</span>
+                                    <span class="badge text-bg-light">5 seats</span>
+                                    <span class="badge text-bg-light">2 bags</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-md-7">
+                                    <div class="ratio ratio-16x9">
+                                        <div class="slide-img image-sedan" role="img" aria-label="Honda City available for rent in Pakistan"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 p-4 pb-5 p-lg-5">
+                                    <p class="text-white-50 mb-1">Sedan</p>
+                                    <h3 class="h2 mb-2">Honda City</h3>
+                                    <p class="fs-4 mb-3"><strong>PKR 10,000</strong> <span class="fs-6 text-white-50">/ day</span></p>
+                                    <span class="badge text-bg-light">Automatic</span>
+                                    <span class="badge text-bg-light">5 seats</span>
+                                    <span class="badge text-bg-light">2 bags</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-md-7">
+                                    <div class="ratio ratio-16x9">
+                                        <div class="slide-img image-hatchback" role="img" aria-label="Suzuki Alto available for rent in Pakistan"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 p-4 pb-5 p-lg-5">
+                                    <p class="text-white-50 mb-1">City compact</p>
+                                    <h3 class="h2 mb-2">Suzuki Alto</h3>
+                                    <p class="fs-4 mb-3"><strong>PKR 5,000</strong> <span class="fs-6 text-white-50">/ day</span></p>
+                                    <span class="badge text-bg-light">Automatic</span>
+                                    <span class="badge text-bg-light">5 seats</span>
+                                    <span class="badge text-bg-light">1 bag</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#fleetCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous car</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#fleetCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next car</span>
+                    </button>
                 </div>
             </div>
-            <form class="payment-form">
-                <label>
-                    <span>Cardholder name</span>
-                    <input type="text" name="cardholder" autocomplete="cc-name" placeholder="Your full name" required>
-                </label>
-                <label>
-                    <span>Card number</span>
-                    <input type="text" name="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                </label>
-                <div class="payment-row">
-                    <label>
-                        <span>Expiry date</span>
-                        <input type="text" name="expiry" autocomplete="cc-exp" placeholder="MM / YY" maxlength="7" required>
-                    </label>
-                    <label>
-                        <span>CVV</span>
-                        <input type="text" name="cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required>
-                    </label>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="py-5" id="how-it-works" aria-labelledby="benefits-title">
+            <div class="container">
+                <p class="fw-semibold text-primary mb-1">The goRide promise</p>
+                <h2 id="benefits-title" class="mb-4">Less admin. More adventure.</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100"><div class="card-body p-4">
+                            <span class="fs-3 fw-bold text-primary">01</span>
+                            <h3 class="h5 mt-2">Clear pricing</h3>
+                            <p class="text-secondary mb-0">What you see is what you pay, with no surprise fees at checkout.</p>
+                        </div></div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100"><div class="card-body p-4">
+                            <span class="fs-3 fw-bold text-primary">02</span>
+                            <h3 class="h5 mt-2">Flexible plans</h3>
+                            <p class="text-secondary mb-0">Change your dates or extend your trip when life takes a turn.</p>
+                        </div></div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100"><div class="card-body p-4">
+                            <span class="fs-3 fw-bold text-primary">03</span>
+                            <h3 class="h5 mt-2">Real support</h3>
+                            <p class="text-secondary mb-0">Our local team is ready to help before, during, and after your drive.</p>
+                        </div></div>
+                    </div>
                 </div>
-                <button class="primary-button" type="submit">Pay securely <span aria-hidden="true">&rarr;</span></button>
-            </form>
+            </div>
+        </section>
+
+        <!-- PAYMENT -->
+        <section class="py-5 bg-body-tertiary" id="payment" aria-labelledby="payment-title">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <p class="fw-semibold text-primary mb-1">Secure checkout</p>
+                        <h2 id="payment-title" class="mb-3">Pay for your ride by card.</h2>
+                        <p class="text-secondary">Reserve your car with a secure card payment. We accept Visa, Mastercard.</p>
+                        <div class="d-flex gap-2" aria-label="Accepted card services">
+                            <span class="badge text-bg-dark fs-6">VISA</span>
+                            <span class="badge text-bg-dark fs-6">mastercard</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="card border-0 shadow-sm p-4">
+                            <div class="mb-3">
+                                <label class="form-label" for="cardholder">Cardholder name</label>
+                                <input class="form-control" type="text" id="cardholder" name="cardholder" autocomplete="cc-name" placeholder="Your full name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="card-number">Card number</label>
+                                <input class="form-control" type="text" id="card-number" name="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label" for="expiry">Expiry date</label>
+                                    <input class="form-control" type="text" id="expiry" name="expiry" autocomplete="cc-exp" placeholder="MM / YY" maxlength="7" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="cvv">CVV</label>
+                                    <input class="form-control" type="text" id="cvv" name="cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-lg" type="submit">Pay securely <span aria-hidden="true">&rarr;</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="site-footer" id="contact">
-        <div><a class="logo footer-logo" href="#top"><span class="logo-mark">g</span><span>goRide</span></a><p>Better journeys begin here.</p></div>
-        <div class="footer-links"><a href="#fleet">Fleet</a><a href="#how-it-works">About goRide</a><a href="mailto:hello@goride.pk">hello@goride.pk</a></div>
-        <p class="copyright">&copy; 2026 goRide Pakistan</p>
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white-50 py-4" id="contact">
+        <div class="container">
+            <div class="row gy-3 align-items-center">
+                <div class="col-md-4">
+                    <a class="navbar-brand d-inline-flex align-items-center gap-2 fw-bold text-white" href="#top">
+                        <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary text-white" style="width:2rem;height:2rem">g</span>
+                        <span>goRide</span>
+                    </a>
+                    <p class="mb-0 small">Better journeys begin here.</p>
+                </div>
+                <div class="col-md-5">
+                    <ul class="nav justify-content-md-center">
+                        <li class="nav-item"><a class="nav-link px-2 text-white-50" href="#fleet">Fleet</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-white-50" href="#how-it-works">About goRide</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-white-50" href="mailto:hello@goride.pk">hello@goride.pk</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-md-end small">&copy; 2026 goRide Pakistan</div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS bundle (needed for the carousel and the mobile menu) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
